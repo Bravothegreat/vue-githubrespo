@@ -51,9 +51,9 @@ export default {
       this.$router.push('/');
     },
 
-    // erropage() {
-    //   this.$router.push('/notfound');
-    // },
+    erropage() {
+      this.$router.push('/notfound');
+    },
 
   },
   mounted() {
@@ -89,7 +89,7 @@ export default {
 
     <button class="home-button" @click="homepage">Back To Respository List</button>
 
-    <!-- <button @click="erropage">Test Error</button> -->
+    <button @click="erropage">Test Error</button>
 
   </div>
 </template>
