@@ -30,8 +30,8 @@
 }
 
 .reduced-img{
-  width: 400px;
-  height: 400px;
+  width: 380px;
+  height: 350px;
  
  
 }

@@ -28,15 +28,16 @@ import gitHubIcon from './icons/gitHubIcon.vue';
     padding: 20px;
      position: fixed;
      /* z-index: 99; */
-     width: 100%;
+     width: 105%;
      top: 0;
-    
+     text-align: center;
 
 
 }
 
 .navbar h1 {
   transition: transform 0.1s ease;
+ 
 }
 
 .navbar h1:hover {
