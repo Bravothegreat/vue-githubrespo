@@ -60,7 +60,7 @@ onMounted(async () => {
       box-shadow: 10px 10px 20px 9px rgba(0, 0, 0, 0.4); 
      color: #bfa181; 
      border-radius: 15px;
-     margin-top: 30px;
+    
 }
 
 .header h1 {
