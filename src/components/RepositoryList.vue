@@ -312,7 +312,7 @@ export default {
      height: 1009px;
      border-radius: 5px;
      padding-top: 30px;
-     margin-top: 17rem;
+     margin-top: 21rem;
    
   }
 }

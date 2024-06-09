@@ -60,7 +60,7 @@ onMounted(async () => {
      /* top: 0; */
       box-shadow: 10px 10px 20px 9px rgba(0, 0, 0, 0.4); 
      color: #bfa181; 
-     border-radius: 10px;
+     border-radius: 15px;
 
 }
 
@@ -87,7 +87,7 @@ onMounted(async () => {
     justify-content: center;
     align-items: center;
     /* margin: 0 auto; */
-    width: 98%;
+    width: 96%;
 
     /* margin-top: 30px; */
     position: fixed;

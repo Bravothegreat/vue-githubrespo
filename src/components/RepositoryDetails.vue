@@ -161,4 +161,14 @@
   align-items: center;
  }
 
+
+ @media screen and (max-width: 786px) {
+
+   .respo-details {
+     
+      margin-top: 21rem;
+   }
+
+ }
+
 </style>
