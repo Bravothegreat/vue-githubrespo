@@ -81,12 +81,7 @@ export default {
 
 <template>
    
-   <!-- <div class="loading" v-if="loading">
-       <p>loading..</p>
-    
-    </div> -->
-
-    <div class="lds-hourglass" v-if="loading"></div>
+   <div class="lds-hourglass" v-if="loading"></div>
  
   <div class="main">
 
@@ -158,23 +153,12 @@ export default {
  }
 
  .main{
-  margin-top: 150px;
+  margin-top: 15rem;
   /* z-index: 4; */
  }
 
 
- .loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 2rem;
-  color: #178582;
-  margin: auto 0;
- }
-
-
-
+   
   
 .lds-hourglass,
 .lds-hourglass:after {
@@ -217,6 +201,7 @@ export default {
 }
 
 
+ 
  
 
 

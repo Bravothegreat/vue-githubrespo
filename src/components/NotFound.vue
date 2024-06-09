@@ -22,7 +22,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 110px;
+
 }
 
 .error-text{
@@ -30,8 +30,8 @@
 }
 
 .reduced-img{
-  width: 380px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
  
  
 }

@@ -1,18 +1,18 @@
 <script >
 import { RouterView} from 'vue-router'
-import Navbar from "./components/Navbar.vue"
+import MyHeader from "./components/MyHeader.vue"
 
 export default {
   components: {
     
     RouterView,
-    Navbar
+    MyHeader,
   }
 }
 </script>
 
 <template>
-  <Navbar />
+  <MyHeader />
 <RouterView />
 </template>
 

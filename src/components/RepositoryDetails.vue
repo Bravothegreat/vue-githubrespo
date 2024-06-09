@@ -1,70 +1,70 @@
 
+  
 
  <script>
 
-import BranchIcon from './icons/branchIcon.vue';
-import ForkIcon from './icons/forkIcon.vue';
-import StarIcon from './icons/starIcon.vue';
-import WatchIcon from './icons/watchIcon.vue';
-
-export default {
-  data() {
-    return {
-      details: [],
-      branches: [],
-      deployments: [],
-      loading: false,
-    };
-  },
-  methods: {
-    fetchData: function () {
-      this.loading = true;
-      fetch(`https://api.github.com/repos/Bravothegreat/${this.$route.params.id}`, {
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-        .then((res) => res.json())
-        .then((details) => (this.details = details));
-
-      fetch(`https://api.github.com/repos/Bravothegreat/${this.$route.params.id}/branches`, {
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-        .then((res) => res.json())
-        .then((branches) => (this.branches = branches));
-
-        fetch(`https://api.github.com/repos/Bravothegreat/${this.$route.params.id}/deployments`, {
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-
-        .then((res) => res.json())
-        .then((deployments) => {
-          this.deployments = deployments;
-          this.loading = false;
-        });
-    },
-    homepage() {
-      this.$router.push('/');
-    },
-
-    erropage() {
-      this.$router.push('/notfound');
-    },
-
-  },
-  mounted() {
-    this.fetchData();
-  },
-   
-  components: { StarIcon, WatchIcon, ForkIcon, BranchIcon },
-
-};
-</script>
-
+//  import BranchIcon from './icons/branchIcon.vue';
+//  import ForkIcon from './icons/forkIcon.vue';
+//  import StarIcon from './icons/starIcon.vue';
+//  import WatchIcon from './icons/watchIcon.vue';
+ 
+ export default {
+   data() {
+     return {
+       details: [],
+       branches: [],
+       deployments: [],
+       loading: false,
+     };
+   },
+   methods: {
+     fetchData: function () {
+       this.loading = true;
+       fetch(`https://api.github.com/repos/Bravothegreat/${this.$route.params.id}`, {
+         headers: {
+           Accept: 'application/json',
+         },
+       })
+         .then((res) => res.json())
+         .then((details) => (this.details = details));
+ 
+       fetch(`https://api.github.com/repos/Bravothegreat/${this.$route.params.id}/branches`, {
+         headers: {
+           Accept: 'application/json',
+         },
+       })
+         .then((res) => res.json())
+         .then((branches) => (this.branches = branches));
+ 
+         fetch(`https://api.github.com/repos/Bravothegreat/${this.$route.params.id}/deployments`, {
+         headers: {
+           Accept: 'application/json',
+         },
+       })
+ 
+         .then((res) => res.json())
+         .then((deployments) => {
+           this.deployments = deployments;
+           this.loading = false;
+         });
+     },
+     homepage() {
+       this.$router.push('/');
+     },
+ 
+     erropage() {
+       this.$router.push('/notfound');
+     },
+ 
+   },
+   mounted() {
+     this.fetchData();
+   },
+    
+  //  components: { StarIcon, WatchIcon, ForkIcon, BranchIcon },
+ 
+ };
+ </script>
 
 <template>
   <div class="respo-details">
@@ -78,6 +78,13 @@ export default {
         <p><WatchIcon /> Watch: {{ details.watchers }}</p>
         <p><ForkIcon /> Forks: {{ details.forks }}</p>
         <p><BranchIcon /> Branches: {{ branches.length }}</p>
+        <p>Open issue: {{ details.open_issues_count }}</p>
+        
+
+        <p>Date Created: {{new Date(details.created_at).toLocaleDateString() }}</p> 
+
+         <p>Last Update: {{ new Date(details.updated_at).toLocaleDateString() }}</p>
+
       </div>
       <p v-if="details.language === null">Main Language: none</p>
       <p v-else>Main Language: {{ details.language }}</p>
@@ -89,7 +96,7 @@ export default {
 
     <button class="home-button" @click="homepage">Back To Respository List</button>
 
-    <button @click="erropage">Test Error</button>
+     <button @click="erropage">Test Error</button> 
 
   </div>
 </template>
@@ -135,7 +142,7 @@ export default {
     width: 350px;
     padding: 7px 10px;
     border-radius: 5px;
-    margin-top: 110px;
+    margin-top: 16rem;
  } 
 
  .respo-details p{
