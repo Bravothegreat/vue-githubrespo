@@ -53,13 +53,14 @@ onMounted(async () => {
     background-color: #0a1828;
     text-align: center;
     padding: 20px;
-     position: fixed;
+     /* position: fixed; */
      /* z-index: 99; */
      width: 100%;
-     top: 0;
-     box-shadow: 10px 10px 20px 9px rgba(0, 0, 0, 0.4);
-     color: #bfa181;
-
+      border: 2px solid rgb(44, 43, 43);
+     /* top: 0; */
+      box-shadow: 10px 10px 20px 9px rgba(0, 0, 0, 0.4); 
+     color: #bfa181; 
+     border-radius: 10px;
 
 }
 
@@ -79,7 +80,20 @@ onMounted(async () => {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 786px) {
 
+  .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0 auto; */
+    width: 98%;
+
+    /* margin-top: 30px; */
+    position: fixed;
+    top: 0;
+  }
+}
 
 
 

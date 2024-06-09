@@ -142,7 +142,7 @@
     width: 350px;
     padding: 7px 10px;
     border-radius: 5px;
-    margin-top: 16rem;
+    margin-top: 2.5rem;
  } 
 
  .respo-details p{

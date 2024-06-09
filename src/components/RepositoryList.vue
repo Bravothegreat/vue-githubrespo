@@ -153,7 +153,7 @@ export default {
  }
 
  .main{
-  margin-top: 15rem;
+ margin-top: 2.5rem;
   /* z-index: 4; */
  }
 
@@ -312,7 +312,7 @@ export default {
      height: 1009px;
      border-radius: 5px;
      padding-top: 30px;
-     margin-top: 120px;
+     margin-top: 17rem;
    
   }
 }
