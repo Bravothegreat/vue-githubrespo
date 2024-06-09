@@ -1,5 +1,5 @@
 <script setup>
-// import gitHubIcon from './icons/gitHubIcon.vue';
+import gitHubIcon from './githubicons/gitHubIcon.vue';
 import  {ref, onMounted} from 'vue'
 import axios from 'axios'
 
@@ -23,7 +23,7 @@ onMounted(async () => {
    <div>
     <h1>
       {{ github.name }}
-      <!-- <gitHubIcon /> -->
+      <gitHubIcon />
        
     </h1>
     <p>{{ github.bio }}</p>
@@ -53,15 +53,14 @@ onMounted(async () => {
     background-color: #0a1828;
     text-align: center;
     padding: 20px;
-     /* position: fixed; */
-     /* z-index: 99; */
+   
      width: 100%;
       border: 2px solid rgb(44, 43, 43);
-     /* top: 0; */
+   
       box-shadow: 10px 10px 20px 9px rgba(0, 0, 0, 0.4); 
      color: #bfa181; 
      border-radius: 15px;
-
+     margin-top: 30px;
 }
 
 .header h1 {
@@ -86,10 +85,10 @@ onMounted(async () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: 0 auto; */
+ 
     width: 96%;
 
-    /* margin-top: 30px; */
+   
     position: fixed;
     top: 0;
   }
