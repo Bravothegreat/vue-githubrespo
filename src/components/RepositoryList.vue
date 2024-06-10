@@ -80,6 +80,25 @@ export default {
 </script>
 
 <template>
+
+<div class="search-filter">
+    
+    <input class="input" type="text" placeholder="Search repository by name " v-model="searchTerm">
+
+
+   
+    <select  v-model="selectedLanguage" @change="handleLanguageFilter(selectedLanguage)">
+      <option value="">Filter</option>
+      <option value="HTML">HTML</option>
+      <option value="CSS">CSS</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="React">React</option>
+      <option value="Vue">Vue</option>
+      <option value="Typescript">Typescript</option>
+      <option value="Nextjs">Next Js</option>
+    </select>
+
+  </div>
    
    <div class="lds-hourglass" v-if="loading"></div>
  
@@ -88,24 +107,7 @@ export default {
     
 
  
-  <div class="search-filter">
-    
-      <input class="input" type="text" placeholder="Search repository by name " v-model="searchTerm">
-
-
-     
-      <select  v-model="selectedLanguage" @change="handleLanguageFilter(selectedLanguage)">
-        <option value="">Filter</option>
-        <option value="HTML">HTML</option>
-        <option value="CSS">CSS</option>
-        <option value="JavaScript">JavaScript</option>
-        <option value="React">React</option>
-        <option value="Vue">Vue</option>
-        <option value="Typescript">Typescript</option>
-        <option value="Nextjs">Next Js</option>
-      </select>
-
-    </div>
+ 
 
       
    
@@ -249,14 +251,15 @@ export default {
  .search-filter{
   display: flex;
   flex-direction: column;
-  width: 20rem;
+  width: 22rem;
   margin: 0 auto;
   gap: 10px;
   padding-block-start: 20px;
   margin-bottom: 20px;
-  margin-top: -30px;
- 
-  
+  margin-top: 30px;
+  box-shadow: 8px 19px 25px rgba(0, 0, 0, 0.5);
+   padding: 20px;
+   border-radius: 10px;
  }
 
  .search-filter input, select{

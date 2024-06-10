@@ -84,6 +84,7 @@ onMounted(async () => {
      width: 360px;
      margin: 0 auto;
      box-shadow: 8px 19px 25px rgba(0, 0, 0, 0.5);
+     border-radius: 10px;
   }
 }
 
