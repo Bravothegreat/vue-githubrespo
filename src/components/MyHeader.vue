@@ -53,13 +53,14 @@ onMounted(async () => {
     background-color: #0a1828;
     text-align: center;
     padding: 20px;
+    color: #bfa181;
+
+    box-shadow: 10px 10px 20px 9px rgba(0, 0, 0, 0.4); 
    
+
      /* width: 100%; */
       /* border: 2px solid rgb(44, 43, 43); */
-   
-      box-shadow: 10px 10px 20px 9px rgba(0, 0, 0, 0.4); 
-     color: #bfa181; 
-     border-radius: 15px;
+     /* border-radius: 15px; */
     
 }
 
