@@ -312,8 +312,8 @@ export default {
      height: 1009px;
      border-radius: 5px;
      padding-top: 30px;
-     margin-top: 21rem;
-   
+     margin-top:2rem;
+     box-shadow: 8px 9px 25px rgba(0, 0, 0, 0.5);
   }
 }
 

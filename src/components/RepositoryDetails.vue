@@ -1,12 +1,5 @@
 
-  
-
  <script>
-
-//  import BranchIcon from './icons/branchIcon.vue';
-//  import ForkIcon from './icons/forkIcon.vue';
-//  import StarIcon from './icons/starIcon.vue';
-//  import WatchIcon from './icons/watchIcon.vue';
  
  export default {
    data() {
@@ -52,17 +45,16 @@
        this.$router.push('/');
      },
  
-     erropage() {
-       this.$router.push('/notfound');
-     },
+    //  erropage() {
+    //    this.$router.push('/notfound');
+    //  },
  
    },
    mounted() {
      this.fetchData();
    },
     
-  //  components: { StarIcon, WatchIcon, ForkIcon, BranchIcon },
- 
+  
  };
  </script>
 
@@ -96,7 +88,7 @@
 
     <button class="home-button" @click="homepage">Back To Respository List</button>
 
-     <button @click="erropage">Test Error</button> 
+     <!-- <button @click="erropage">Test Error</button>  -->
 
   </div>
 </template>
@@ -166,7 +158,7 @@
 
    .respo-details {
      
-      margin-top: 21rem;
+      margin-top: 2rem;
    }
 
  }

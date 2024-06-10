@@ -54,14 +54,8 @@ onMounted(async () => {
     text-align: center;
     padding: 20px;
     color: #bfa181;
-
-    box-shadow: 10px 10px 20px 9px rgba(0, 0, 0, 0.4); 
-   
-
-     /* width: 100%; */
-      /* border: 2px solid rgb(44, 43, 43); */
-     /* border-radius: 15px; */
     
+  
 }
 
 .header h1 {
@@ -86,12 +80,10 @@ onMounted(async () => {
     display: flex;
     justify-content: center;
     align-items: center;
-/*  
-    width: 96%; */
-
-   
-    position: fixed;
-    top: 0;
+     /* border: 2px solid rgb(61, 60, 60); */
+     width: 360px;
+     margin: 0 auto;
+     box-shadow: 8px 19px 25px rgba(0, 0, 0, 0.5);
   }
 }
 
