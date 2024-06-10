@@ -83,11 +83,15 @@ export default {
 
 <div class="search-filter">
     
-    <input class="input" type="text" placeholder="Search repository by name " v-model="searchTerm">
+  
+    <input class="input" type="text" placeholder="Search repository by name " v-model="searchTerm"/>
+  
+    
 
 
    
     <select  v-model="selectedLanguage" @change="handleLanguageFilter(selectedLanguage)">
+     
       <option value="">Filter</option>
       <option value="HTML">HTML</option>
       <option value="CSS">CSS</option>

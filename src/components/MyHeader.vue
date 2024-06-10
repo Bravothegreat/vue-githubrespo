@@ -33,7 +33,15 @@ onMounted(async () => {
  <div class="users-details">
   <p>Number of Followers: {{ github.followers }}</p>
     <p>Public Respositories: {{ github.public_repos }}</p>
+
  </div>
+
+  <p>
+    Email Address:
+    <a href="mailto:okwudilijohngreat@gmail.com">
+      <font-awesome-icon icon="fa-envelope" />
+    </a>
+  </p>
 
   </div>
 
@@ -54,7 +62,7 @@ onMounted(async () => {
     text-align: center;
     padding: 20px;
     color: #bfa181;
-    
+    box-shadow: 8px 19px 25px rgba(0, 0, 0, 0.5);
   
 }
 
