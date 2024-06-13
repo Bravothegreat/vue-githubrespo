@@ -1,24 +1,23 @@
-
 <script setup>
- const handleRefresh = () => {
-  window.location.reload();
- };
+const handleRefresh = () => {
+  window.location.reload()
+}
 </script>
 
 <template>
   <div>
-    <img src="../Images/went-wrong.jpg" alt="">
+    <img src="../Images/went-wrong.jpg" alt="" />
     <h1>Something went wrong</h1>
     <button @click="handleRefresh">Refresh page</button>
   </div>
 </template>
 
 <style scoped>
-img{
+img {
   display: flex;
   margin: 0 auto;
 }
-h1{
+h1 {
   color: red;
   display: flex;
   justify-content: center;
@@ -26,7 +25,7 @@ h1{
   margin: 0 auto;
 }
 
-button{
+button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,4 +34,3 @@ button{
   padding: 10px;
 }
 </style>
-

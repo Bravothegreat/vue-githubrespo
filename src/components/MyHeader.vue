@@ -1,6 +1,6 @@
 <script setup>
-import gitHubIcon from './githubicons/gitHubIcon.vue';
-import  {ref, onMounted} from 'vue'
+import gitHubIcon from './githubicons/gitHubIcon.vue'
+import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
 const github = ref(null)
@@ -8,62 +8,47 @@ const github = ref(null)
 onMounted(async () => {
   const response = await axios.get('https://api.github.com/users/bravothegreat')
   github.value = response.data
-
 })
-
 </script>
 
 <template>
-
   <header>
-   
-  <div v-if="github" class="header">
- 
-    
-   <div>
-    <h1>
-      {{ github.name }}
-      <gitHubIcon />
-       
-    </h1>
-    <p>{{ github.bio }}</p>
+    <div v-if="github" class="header">
+      <div>
+        <h1>
+          {{ github.name }}
+          <gitHubIcon />
+        </h1>
+        <p>{{ github.bio }}</p>
+      </div>
 
-   </div>
+      <div class="users-details">
+        <p>Number of Followers: {{ github.followers }}</p>
+        <p>Public Respositories: {{ github.public_repos }}</p>
+      </div>
 
- <div class="users-details">
-  <p>Number of Followers: {{ github.followers }}</p>
-    <p>Public Respositories: {{ github.public_repos }}</p>
-
- </div>
-
-  <p>
-    Email Address:
-    <a href="mailto:okwudilijohngreat@gmail.com">
-      <font-awesome-icon icon="fa-envelope" />
-    </a>
-  </p>
-
-  </div>
-
+      <p>
+        Email Address:
+        <a href="mailto:okwudilijohngreat@gmail.com">
+          <font-awesome-icon icon="fa-envelope" />
+        </a>
+      </p>
+    </div>
   </header>
-
 </template>
 
 <style scoped>
-
-
 .header {
   display: flex;
   flex-direction: column;
-    align-items: center;
-   gap: 10px;
-    justify-content: center;
-    background-color: #0a1828;
-    text-align: center;
-    padding: 20px;
-    color: #bfa181;
-    box-shadow: 8px 19px 25px rgba(0, 0, 0, 0.5);
-  
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  background-color: #0a1828;
+  text-align: center;
+  padding: 20px;
+  color: #bfa181;
+  box-shadow: 8px 19px 25px rgba(0, 0, 0, 0.5);
 }
 
 .header h1 {
@@ -83,20 +68,15 @@ onMounted(async () => {
 }
 
 @media screen and (max-width: 786px) {
-
-  .header{
+  .header {
     display: flex;
     justify-content: center;
     align-items: center;
-     /* border: 2px solid rgb(61, 60, 60); */
-     width: 360px;
-     margin: 0 auto;
-     box-shadow: 8px 19px 25px rgba(0, 0, 0, 0.5);
-     border-radius: 10px;
+    /* border: 2px solid rgb(61, 60, 60); */
+    width: 360px;
+    margin: 0 auto;
+    box-shadow: 8px 19px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
   }
 }
-
-
-
-
-</style> 
+</style>

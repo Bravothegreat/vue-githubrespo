@@ -1,8 +1,4 @@
-<script setup>
-
-
-
-</script>
+<script setup></script>
 
 <script>
 export default {
@@ -10,88 +6,83 @@ export default {
     return {
       repoData: [],
       currentPage: 1,
-      loading: false ,
+      loading: false,
       perPage: 4,
-     
-      selectedLanguage: '', 
-      searchTerm: '', 
-    };
+      selectedLanguage: '',
+      searchTerm: ''
+    }
   },
   methods: {
     fetchData() {
-      this.loading = true;
+      this.loading = true
       fetch(`https://api.github.com/users/Bravothegreat/repos`, {
         headers: {
-          Accept: "application/json"
-        },
+          Accept: 'application/json'
+        }
       })
         .then((res) => res.json())
         .then((data) => {
-          this.repoData = data;
-          this.loading = false;
-        });
+          this.repoData = data
+          this.loading = false
+        })
     },
     prevPage() {
       if (this.currentPage > 1) {
-        this.currentPage--;
+        this.currentPage--
       }
     },
     nextPage() {
       if (this.currentPage < this.lastPage) {
-        this.currentPage++;
+        this.currentPage++
       }
     },
     handleLanguageFilter(language) {
-      this.selectedLanguage = language;
-      this.currentPage = 1; 
-    },
+      this.selectedLanguage = language
+      this.currentPage = 1
+    }
 
     // errorboundary() {
     //   this.$router.push('/errorboundary');
     // }
-
   },
   mounted() {
-    this.fetchData();
+    this.fetchData()
   },
   computed: {
     showMore() {
-      const start = (this.currentPage - 1) * this.perPage;
-      const end = start + this.perPage;
-      this.loading = false;
-      return this.repoData.filter(repo => {
-      
-        if (this.selectedLanguage && repo.language !== this.selectedLanguage) {
-          return false; 
-        }
-        
+      const start = (this.currentPage - 1) * this.perPage
+      const end = start + this.perPage
+      this.loading = false
+      return this.repoData
+        .filter((repo) => {
+          if (this.selectedLanguage && repo.language !== this.selectedLanguage) {
+            return false
+          }
 
-        if (this.searchTerm && !repo.name.toLowerCase().includes(this.searchTerm.toLowerCase())) {
-          return false; // 
-        }
-        return true; 
-      }).slice(start, end);
+          if (this.searchTerm && !repo.name.toLowerCase().includes(this.searchTerm.toLowerCase())) {
+            return false
+          }
+          return true
+        })
+        .slice(start, end)
     },
     lastPage() {
-      return Math.ceil(this.repoData.length / this.perPage);
+      return Math.ceil(this.repoData.length / this.perPage)
     }
   }
 }
 </script>
 
 <template>
+  <div class="search-filter">
+    <input
+      class="input"
+      type="text"
+      placeholder="Search repository by name "
+      v-model="searchTerm"
+    />
 
-<div class="search-filter">
-    
-  
-    <input class="input" type="text" placeholder="Search repository by name " v-model="searchTerm"/>
-  
-    
-
-
-   
-    <select  v-model="selectedLanguage" @change="handleLanguageFilter(selectedLanguage)">
-     
+    <select v-model="selectedLanguage" @change="handleLanguageFilter(selectedLanguage)">
       <option value="">Filter</option>
       <option value="HTML">HTML</option>
       <option value="CSS">CSS</option>
@@ -101,71 +92,48 @@ export default {
       <option value="Typescript">Typescript</option>
       <option value="Nextjs">Next Js</option>
     </select>
-
   </div>
-   
-   <div class="lds-hourglass" v-if="loading"></div>
- 
+
+  <div class="lds-hourglass" v-if="loading"></div>
+
   <div class="main">
-
-    
-
- 
- 
-
-      
-   
-   
     <div class="respo-list">
-   
-      <div  v-for="repo in showMore" class="showrepo-details" :key="repo.id">
+      <div v-for="repo in showMore" class="showrepo-details" :key="repo.id">
         <router-link :to="`/details/${repo.name}`">
           <h2 class="repo-name">{{ repo.name }}</h2>
         </router-link>
-        <p >Language: {{ repo.language }}</p>
+        <p>Language: {{ repo.language }}</p>
         <p>Start date & time: {{ repo.created_at }}</p>
-        <p >Visibility: {{ repo.visibility }}</p>
+        <p>Visibility: {{ repo.visibility }}</p>
       </div>
+    </div>
 
-    </div >
-
-    <div  class="pagination">
-      <button class="page" :class="currentPage === 1 ? 'disabled' : ''" @click="prevPage">
-       
-        <span><</span> Previous 
-      </button>
+    <div class="pagination">
+      <button class="page" @click="prevPage">Previous<span><</span></button>
 
       <p class="current-page">{{ currentPage }}</p>
 
       <button class="page" :class="currentPage === lastPage ? 'disabled' : ''" @click="nextPage">
-      
-      Next <span>></span>
+        Next <span>></span>
       </button>
     </div>
   </div>
-   
- <!-- <button class="error-btn" @click="errorboundary">Test Error Boundary</button> -->
 
+  <!-- <button class="error-btn" @click="errorboundary">Test Error Boundary</button>  -->
 </template>
 
-
 <style scoped>
-
- 
- *, 
- *::before, 
- *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
- }
+}
 
- .main{
- margin-top: 2.5rem;
+.main {
+  margin-top: 2.5rem;
   /* z-index: 4; */
- }
+}
 
-
-   
-  
 .lds-hourglass,
 .lds-hourglass:after {
   box-sizing: border-box;
@@ -177,11 +145,9 @@ export default {
   margin: 0 auto;
   height: 100vh;
   width: 100px;
-
-  
 }
 .lds-hourglass:after {
-  content: " ";
+  content: ' ';
   display: block;
   border-radius: 50%;
   width: 0;
@@ -206,53 +172,43 @@ export default {
   }
 }
 
-
- 
- 
-
-
- .respo-list{
+.respo-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 30px;
   width: 90%;
   margin: 0 auto;
-  
-  
- }
+}
 
- .page{
+.page {
   width: 7rem;
   line-height: 40px;
   display: flex;
   gap: 10px;
-   border-radius: 10px;
-   outline: none;
-   border: none;
-   font-size: 0.9rem;
-    justify-content: center;
-    align-items: center;
-   height: 30px;
-   background-color: #178582;
-    color: #bfa181;
-  
- }
-
- .page span{
-   font-size: 1.2rem;
-     
- }
-
- .repo-name {
-  text-decoration: none;
-    font-size: 1rem;
-    word-break: break-word;
-    white-space: nowrap;
-    color: #178582;
-    
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 0.9rem;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  background-color: #178582;
+  color: #bfa181;
 }
 
- .search-filter{
+.page span {
+  font-size: 1.2rem;
+}
+
+.repo-name {
+  text-decoration: none;
+  font-size: 1rem;
+  word-break: break-word;
+  white-space: nowrap;
+  color: #178582;
+}
+
+.search-filter {
   display: flex;
   flex-direction: column;
   width: 22rem;
@@ -262,41 +218,38 @@ export default {
   margin-bottom: 20px;
   margin-top: 30px;
   box-shadow: 8px 19px 25px rgba(0, 0, 0, 0.5);
-   padding: 20px;
-   border-radius: 10px;
- }
+  padding: 20px;
+  border-radius: 10px;
+}
 
- .search-filter input, select{
+.search-filter input,
+select {
   padding: 10px 20px;
   border-radius: 10px;
-   outline: none;
-   border: 2px solid rgb(54, 53, 53);
- }
+  outline: none;
+  border: 2px solid rgb(54, 53, 53);
+}
 
-  .input:focus{
-    border: 2px solid rgb(110, 108, 108);
-  }
+.input:focus {
+  border: 2px solid rgb(110, 108, 108);
+}
 
-
-
- .showrepo-details{
+.showrepo-details {
   border: 2px solid rgb(54, 52, 52);
-    padding: 10px;
-    border-radius: 15px;
-    box-shadow: #7c8db5;
-   justify-content: center;
-  
-   margin: 0 auto;
-   box-shadow: 8px 9px 25px rgba(0, 0, 0, 0.5);
- }
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: #7c8db5;
+  justify-content: center;
 
- .showrepo-details p{
+  margin: 0 auto;
+  box-shadow: 8px 9px 25px rgba(0, 0, 0, 0.5);
+}
+
+.showrepo-details p {
   color: #bfa181;
- }
+}
 
- 
-
- .pagination {
+.pagination {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -304,24 +257,23 @@ export default {
   margin-top: 1.5rem;
 }
 
-.error-btn{
+.error-btn {
   display: flex;
- margin: 0 auto;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 786px) {
-  .main{
+  .main {
     border: 2px solid rgb(53, 51, 51);
     display: flex;
     flex-direction: column;
     width: 350px;
     margin: 0 auto;
-     height: 1009px;
-     border-radius: 5px;
-     padding-top: 30px;
-     margin-top:2rem;
-     box-shadow: 8px 9px 25px rgba(0, 0, 0, 0.5);
+    height: 1009px;
+    border-radius: 5px;
+    padding-top: 30px;
+    margin-top: 2rem;
+    box-shadow: 8px 9px 25px rgba(0, 0, 0, 0.5);
   }
 }
-
 </style>
